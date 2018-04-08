@@ -1,13 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {Provider} from 'react-redux'
-import { Router, Route, Switch } from "react-router-dom";
+import {Router, Route, Switch, Redirect} from "react-router-dom";
 
-import "assets/scss/material-dashboard-pro-react.css";
 import indexRoutes from "routes/index.jsx";
 import {createBrowserHistory} from "history";
+import "assets/scss/material-dashboard-pro-react.css";
+import Auth from "auth/Auth";
 
 const hist = createBrowserHistory();
+
+const auth = new Auth();
+
+auth.login()
 
 const Root = ({store}) => (
     <Provider store={store}>
@@ -15,7 +20,15 @@ const Root = ({store}) => (
             <Router history={hist}>
                 <Switch>
                     {indexRoutes.map((prop, key) => {
-                        return <Route path={prop.path} component={prop.component} key={key} />;
+                        if (!prop.private) {
+                            return <Route path={prop.path} component={prop.component} key={key}/>;
+                        }
+
+                        return <Route path={prop.path} render={(props) => (
+                            auth.isAuthenticated()
+                                ? React.createElement(prop.component, props)
+                                : <Redirect to='/pages/login-page'/>
+                        ) } key={key} />
                     })}
                 </Switch>
             </Router>,

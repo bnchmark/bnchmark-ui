@@ -1,4 +1,6 @@
-import React from "react";
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import compose from 'recompose/compose';
 import PropTypes from "prop-types";
 
 // material-ui components
@@ -19,7 +21,20 @@ import Button from "components/CustomButtons/Button.jsx";
 
 import loginPageStyle from "assets/jss/material-dashboard-pro-react/views/loginPageStyle.jsx";
 
-class LoginPage extends React.Component {
+
+
+// auth.auth0.login({
+//     realm: 'Username-Password-Authentication', //connection name or HRD domain
+//     username: 'demo@bnchmark.com',
+//     password: 'demo1234!',
+//     audience: 'https://bnchmark.auth0.com/api/v2',
+//     scope: 'read:order write:order',
+// }, function(err, authResult) {
+//     console.log(arguments)
+//     // Auth tokens in the result or an error
+// });
+
+class LoginPage extends Component {
   constructor(props) {
     super(props);
     // we use this to make the card to appear after the page has been rendered
@@ -74,20 +89,6 @@ class LoginPage extends React.Component {
                   content={
                     <div>
                       <CustomInput
-                        labelText="First Name.."
-                        id="firstname"
-                        formControlProps={{
-                          fullWidth: true
-                        }}
-                        inputProps={{
-                          endAdornment: (
-                            <InputAdornment position="end">
-                              <Face className={classes.inputAdornmentIcon} />
-                            </InputAdornment>
-                          )
-                        }}
-                      />
-                      <CustomInput
                         labelText="Email..."
                         id="email"
                         formControlProps={{
@@ -133,4 +134,24 @@ LoginPage.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(loginPageStyle)(LoginPage);
+
+const mapStateToProps = (state, ownProps) => ({
+});
+
+const mapDispatchToProps = dispatch => ({
+});
+//
+// const Login = compose(
+//     withStyles(loginPageStyle),
+//     connect(mapStateToProps, mapDispatchToProps)
+// )(LoginPage);
+
+// export default withRouter(loginPageStyle)(Login);
+
+// export default withRouter(connect(mapStateToProps, mapDispatchToProps)(LoginPage));
+// export default withStyles(loginPageStyle)(LoginPage);
+
+export default compose(
+    withStyles(loginPageStyle),
+    connect(mapStateToProps, mapDispatchToProps)
+)(LoginPage);
