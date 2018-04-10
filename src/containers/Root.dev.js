@@ -2,33 +2,47 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {Provider} from 'react-redux'
 import {Router, Route, Switch, Redirect} from "react-router-dom";
-
+import history from 'history.js';
 import indexRoutes from "routes/index.jsx";
-import {createBrowserHistory} from "history";
+
+// import Callback from "components/Callback/Callback";
 import "assets/scss/material-dashboard-pro-react.css";
 import Auth from "auth/Auth";
 
-const hist = createBrowserHistory();
-
 const auth = new Auth();
+const handleAuthentication = ({location}) => {
+    if (/access_token|id_token|error/.test(location.hash)) {
+        auth.handleAuthentication();
+    }
+};
 
-auth.login()
-
+console.log(auth);
 const Root = ({store}) => (
     <Provider store={store}>
         <div>
-            <Router history={hist}>
+            <Router history={history}>
                 <Switch>
+                    {/*<Route path="/callback" render={(props) => {*/}
+                    {/*handleAuthentication(props);*/}
+                    {/*return <Callback {...props} />*/}
+                    {/*}}/>*/}
                     {indexRoutes.map((prop, key) => {
                         if (!prop.private) {
                             return <Route path={prop.path} component={prop.component} key={key}/>;
+                        }
+
+                        if (prop.path === '/callback') {
+                            return <Route path={prop.path} render={(props) => {
+                                handleAuthentication(props);
+                                return React.createElement(prop.component, props)
+                            }} key={key} />;
                         }
 
                         return <Route path={prop.path} render={(props) => (
                             auth.isAuthenticated()
                                 ? React.createElement(prop.component, props)
                                 : <Redirect to='/pages/login-page'/>
-                        ) } key={key} />
+                        )} key={key}/>
                     })}
                 </Switch>
             </Router>,
