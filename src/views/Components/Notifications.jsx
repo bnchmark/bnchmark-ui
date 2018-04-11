@@ -451,7 +451,7 @@ class Notifications extends React.Component {
                             text={
                               <span>
                                 The first step is to create an account at{" "}
-                                <a href="http://www.creative-tim.com/">
+                                <a href="https://www.bnchmark.com/">
                                   Creative Tim
                                 </a>. You can choose a social network or go for
                                 the classic version, whatever works best for
@@ -467,7 +467,7 @@ class Notifications extends React.Component {
                             text={
                               <span>
                                 The first step is to create an account at{" "}
-                                <a href="http://www.creative-tim.com/">
+                                <a href="https://www.bnchmark.com/">
                                   Creative Tim
                                 </a>. You can choose a social network or go for
                                 the classic version, whatever works best for

@@ -48,13 +48,13 @@ var pages = [
     name: "User Profile",
     mini: "UP",
     component: UserProfile
-  },
-  {
-    path: "/rtl/rtl-support-page",
-    name: "RTL Support",
-    mini: "RS",
-    component: RTLSupport
   }
+  // {
+  //   path: "/rtl/rtl-support-page",
+  //   name: "RTL Support",
+  //   mini: "RS",
+  //   component: RTLSupport
+  // }
 ].concat(pagesRoutes);
 
 var dashRoutes = [
