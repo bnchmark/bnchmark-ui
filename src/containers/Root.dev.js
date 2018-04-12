@@ -22,10 +22,6 @@ const Root = ({store}) => (
         <div>
             <Router history={history}>
                 <Switch>
-                    {/*<Route path="/callback" render={(props) => {*/}
-                    {/*handleAuthentication(props);*/}
-                    {/*return <Callback {...props} />*/}
-                    {/*}}/>*/}
                     {indexRoutes.map((prop, key) => {
                         if (prop.path === '/callback') {
                             return <Route path={prop.path} render={(props) => {
