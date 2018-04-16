@@ -33,7 +33,7 @@ const Root = ({store}) => (
                         }
 
                         if (!prop.private) {
-                            return <Route path={prop.path} component={prop.component} auth={auth} key={key}/>;
+                            return <Route path={prop.path} component={prop.component} key={key}/>;
                         }
 
                         return <Route path={prop.path} render={(props) => (

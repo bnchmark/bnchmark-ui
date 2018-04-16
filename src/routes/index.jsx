@@ -8,7 +8,7 @@ const indexRoutes = [
     {path: "/pages", name: "Pages", component: Pages},
     {path: "/dashboard", name: "Home", component: Dashboard, private: true},
     {path: "/callback", name: "Callback", component: Callback},
-    { path: "/", name: "Home", component: Dashboard }
+    { path: "/", name: "Home", component: Dashboard, private: true }
 ];
 
 export default indexRoutes;

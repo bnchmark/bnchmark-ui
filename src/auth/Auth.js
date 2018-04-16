@@ -54,7 +54,7 @@ export default class Auth {
         localStorage.setItem('id_token', authResult.idToken);
         localStorage.setItem('expires_at', expiresAt);
         // navigate to the home route
-        history.replace('/dashboard');
+        // history.replace('/dashboard');
     }
 
     getIdToken() {
@@ -64,13 +64,18 @@ export default class Auth {
     getAccessToken() {
         const accessToken = localStorage.getItem('access_token');
         if (!accessToken) {
-            throw new Error('No access token found');
+            return null;
+            // throw new Error('No access token found');
         }
         return accessToken;
     }
 
     getProfile(cb) {
         let accessToken = this.getAccessToken();
+        if (!accessToken) {
+            return {}
+        }
+
         this.auth0.client.userInfo(accessToken, (err, profile) => {
             if (profile) {
                 this.userProfile = profile;
