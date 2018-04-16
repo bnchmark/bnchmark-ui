@@ -16,6 +16,7 @@ const handleAuthentication = ({location}) => {
     }
 };
 
+
 console.log(auth);
 const Root = ({store}) => (
     <Provider store={store}>
@@ -28,11 +29,11 @@ const Root = ({store}) => (
                                 console.log(prop);
                                 handleAuthentication(props);
                                 return React.createElement(prop.component, props)
-                            }} key={key} />;
+                            }} key={key}/>;
                         }
 
                         if (!prop.private) {
-                            return <Route path={prop.path} component={prop.component} key={key}/>;
+                            return <Route path={prop.path} component={prop.component} auth={auth} key={key}/>;
                         }
 
                         return <Route path={prop.path} render={(props) => (
@@ -50,4 +51,5 @@ const Root = ({store}) => (
 Root.propTypes = {
     store: PropTypes.object.isRequired,
 };
+
 export default Root
