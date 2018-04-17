@@ -5,7 +5,6 @@ import {Router, Route, Switch, Redirect} from "react-router-dom";
 import history from 'history.js';
 import indexRoutes from "routes/index.jsx";
 
-// import Callback from "components/Callback/Callback";
 import "assets/scss/material-dashboard-pro-react.css";
 import Auth from "auth/Auth";
 
