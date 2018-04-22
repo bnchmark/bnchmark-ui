@@ -8,6 +8,8 @@ import theme from 'resources/theme/cutsome.theme';
 
 const store = configureStore();
 
+console.log(process.env)
+
 render(
     <Router>
         <MuiThemeProvider theme={theme}>

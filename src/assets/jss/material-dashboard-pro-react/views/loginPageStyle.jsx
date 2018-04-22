@@ -2,33 +2,35 @@
 // // // LoginPage view styles
 // #############################
 
-import { container } from "assets/jss/material-dashboard-pro-react.jsx";
+import {container} from "assets/jss/material-dashboard-pro-react.jsx";
+import buttonStyle from "assets/jss/material-dashboard-pro-react/components/buttonStyle.jsx";
 
 const loginPageStyle = {
-  content: {
-    paddingTop: "18vh",
-    minHeight: "calc(100vh - 80px)",
-    position: "relative",
-    zIndex: "4"
-  },
-  container,
-  customButtonClass: {
-    "&,&:focus,&:hover":{
-      color: "#FFFFFF",
+    content: {
+        paddingTop: "18vh",
+        minHeight: "calc(100vh - 80px)",
+        position: "relative",
+        zIndex: "4"
     },
-    marginLeft: "5px",
-    marginRight: "5px"
-  },
-  inputAdornment: {
-    marginRight: "18px"
-  },
-  inputAdornmentIcon: {
-    color: "#555"
-  },
-  cardHidden: {
-    opacity: "0",
-    transform: "translate3d(0, -60px, 0)"
-  }
+    container,
+    customButtonClass: {
+        "&,&:focus,&:hover": {
+            color: "#FFFFFF",
+        },
+        marginLeft: "5px",
+        marginRight: "5px"
+    },
+    inputAdornment: {
+        marginRight: "18px"
+    },
+    inputAdornmentIcon: {
+        color: "#555"
+    },
+    cardHidden: {
+        opacity: "0",
+        transform: "translate3d(0, -60px, 0)"
+    },
+    ...buttonStyle
 };
 
 export default loginPageStyle;
