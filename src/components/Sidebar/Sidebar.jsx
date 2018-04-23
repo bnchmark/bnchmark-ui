@@ -20,7 +20,6 @@ import Collapse from "material-ui/transitions/Collapse";
 import HeaderLinks from "components/Header/HeaderLinks.jsx";
 import sidebarStyle from "assets/jss/material-dashboard-pro-react/components/sidebarStyle.jsx";
 import Auth from "auth/Auth";
-import avatar from "assets/img/faces/avatar.jpg";
 
 var ps;
 

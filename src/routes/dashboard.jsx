@@ -82,16 +82,16 @@ const dashRoutes = [
         name: "Events",
         icon: EventsIcon,
         component: Dashboard
-    }
+    },
 
-    // {
-    //   collapse: true,
-    //   path: "-page",
-    //   name: "Pages",
-    //   state: "openPages",
-    //   icon: Image,
-    //   views: pages
-    // },
+    {
+      collapse: true,
+      path: "-page",
+      name: "Pages",
+      state: "openPages",
+      icon: Image,
+      views: pages
+    }
     // {
     //   collapse: true,
     //   path: "/components",
