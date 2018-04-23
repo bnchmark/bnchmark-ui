@@ -25,6 +25,7 @@
     "react-google-maps": "9.4.5",
     "react-jvectormap": "0.0.2",
     "react-nouislider": "2.0.1",
+    "react-popper": "^0.10.1",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
     "react-router-redux": "next",
