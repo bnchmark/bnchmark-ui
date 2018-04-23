@@ -25,7 +25,6 @@ const Root = ({store}) => (
                     {indexRoutes.map((prop, key) => {
                         if (prop.path === '/callback') {
                             return <Route path={prop.path} render={(props) => {
-                                console.log(prop);
                                 handleAuthentication(props);
                                 return React.createElement(prop.component, props)
                             }} key={key}/>;

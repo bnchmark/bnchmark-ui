@@ -27,6 +27,7 @@ import loginPageStyle from "assets/jss/material-dashboard-pro-react/views/loginP
 
 const auth = new Auth();
 
+
 class LoginPage extends Component {
     constructor(props) {
         super(props);

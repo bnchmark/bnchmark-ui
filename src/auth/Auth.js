@@ -4,12 +4,12 @@ import {AUTH_CONFIG} from './auth0-variables';
 
 export default class Auth {
     auth0 = new auth0.WebAuth({
+        oidcConformant: true,
         domain: AUTH_CONFIG.domain,
         clientID: AUTH_CONFIG.clientId,
         redirectUri: AUTH_CONFIG.callbackUrl,
         audience: `https://${AUTH_CONFIG.domain}/userinfo`,
-        responseType: 'token id_token',
-        scope: 'openid profile'
+        responseType: 'token id_token'
     });
 
     userProfile;
