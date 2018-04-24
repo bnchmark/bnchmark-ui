@@ -1,8 +1,3 @@
-// Extracts the next page URL from Github API response.
-const getNextPageUrl = response => {
-
-}
-
 const API_ROOT = 'https://api.github.com/';
 
 // Fetches an API response and normalizes the result JSON according to schema.
