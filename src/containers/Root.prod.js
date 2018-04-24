@@ -16,7 +16,7 @@ const handleAuthentication = ({location}) => {
     }
 };
 
-console.log(auth);
+// console.log(auth);
 const Root = ({store}) => (
     <Provider store={store}>
         <div>
@@ -38,7 +38,7 @@ const Root = ({store}) => (
                         return <Route path={prop.path} render={(props) => (
                             auth.isAuthenticated()
                                 ? React.createElement(prop.component, props)
-                                : <Redirect to='/pages/login-page'/>
+                                : <Redirect to='/login'/>
                         )} key={key}/>
                     })}
                 </Switch>
