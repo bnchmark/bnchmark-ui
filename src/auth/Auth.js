@@ -13,10 +13,16 @@ export default class Auth {
     });
 
     constructor() {
+        this.domain = 'http://localhost:3001'; // API server domain
         this.login = this.login.bind(this);
         this.logout = this.logout.bind(this);
         this.handleAuthentication = this.handleAuthentication.bind(this);
         this.isAuthenticated = this.isAuthenticated.bind(this);
+        this.fetch = this.fetch.bind(this);
+    }
+
+    getToken() {
+        return localStorage.getItem('id_token')
     }
 
     login() {
@@ -43,7 +49,6 @@ export default class Auth {
 
     setSession(authResult) {
         // Set the time that the access token will expire at
-        console.log('s');
         let expiresAt = JSON.stringify((authResult.expiresIn * 1000) + new Date().getTime());
         localStorage.setItem('access_token', authResult.accessToken);
         localStorage.setItem('id_token', authResult.idToken);
@@ -66,5 +71,42 @@ export default class Auth {
         // access token's expiry time
         let expiresAt = JSON.parse(localStorage.getItem('expires_at'));
         return new Date().getTime() < expiresAt;
+    }
+
+    fetch(url, options) {
+        // performs api calls sending the required authentication headers
+        const headers = {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        };
+
+        // Setting Authorization header
+        // Authorization: Bearer xxxxxxx.xxxxxxxx.xxxxxx
+        if (this.isAuthenticated()) {
+            headers['Authorization'] = 'Bearer ' + this.getToken()
+        }
+
+        return fetch(url, {
+            headers,
+            ...options
+        })
+            // .then(this._checkStatus)
+        .then(response => response.json())
+    }
+
+    _checkStatus(response) {
+        // raises an error in case response status is not a success
+
+
+        console.log(response)
+        if (response.status >= 200 && response.status < 300) { // Success status lies between 200 to 300
+            return response
+        }
+        else {
+            console.log(response.statusText)
+            // const error = new Error(response.statusText)
+            // error.response = response
+            // throw error
+        }
     }
 }

@@ -33,7 +33,7 @@ const style = {
   ...customCheckboxRadioSwitch
 };
 
-class Step2 extends React.Component {
+class Company extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -120,14 +120,10 @@ class Step2 extends React.Component {
                     tabIndex={-1}
                     onClick={this.handleChange("develop")}
                     checkedIcon={
-                      <i
-                        className={"fas fa-laptop " + classes.iconCheckboxIcon}
-                      />
+                      <i className={"fas fa-laptop " + classes.iconCheckboxIcon}/>
                     }
                     icon={
-                      <i
-                        className={"fas fa-laptop " + classes.iconCheckboxIcon}
-                      />
+                      <i className={"fas fa-laptop " + classes.iconCheckboxIcon} />
                     }
                     classes={{
                       checked: classes.iconCheckboxChecked,
@@ -194,4 +190,4 @@ class Step2 extends React.Component {
   }
 }
 
-export default withStyles(style)(Step2);
+export default withStyles(style)(Company);
