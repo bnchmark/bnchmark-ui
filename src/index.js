@@ -1,18 +1,42 @@
-import React from 'react';
-import {render} from 'react-dom';
-import {BrowserRouter as Router} from 'react-router-dom';
-import Root from 'containers/Root';
-import configureStore from 'store/configureStore';
-import {MuiThemeProvider} from 'material-ui/styles';
-import theme from 'resources/theme/cutsome.theme';
+import React from "react";
+import ReactDOM from "react-dom";
+import { Router, Route, Switch, Redirect } from "react-router-dom";
+import Auth from "auth/Auth";
+import indexRoutes from "routes/index.jsx";
+import "assets/scss/material-dashboard-pro-react.css?v=1.1.0";
 
-const store = configureStore();
+import history from 'history.js';
+const auth = new Auth();
 
-render(
-    <Router>
-        <MuiThemeProvider theme={theme}>
-            <Root store={store}/>
-        </MuiThemeProvider>
+const handleAuthentication = ({location}) => {
+    if (/access_token|id_token|error/.test(location.hash)) {
+        auth.handleAuthentication();
+    }
+};
+
+ReactDOM.render(
+    <Router history={history}>
+        <Switch>
+            {indexRoutes.map((prop, key) => {
+
+                if (prop.path === '/callback') {
+                    return <Route path={prop.path} render={(props) => {
+                        handleAuthentication(props);
+                        return React.createElement(prop.component, props)
+                    }} key={key}/>;
+                }
+
+                if (!prop.private) {
+                    return <Route path={prop.path} auth={auth} component={prop.component} key={key}/>;
+                }
+
+                return <Route path={prop.path} auth={auth} render={(props) => (
+                    auth.isAuthenticated()
+                        ? React.createElement(prop.component, props)
+                        : <Redirect to='/login'/>
+                )} key={key}/>
+            })}
+        </Switch>
     </Router>,
-    document.getElementById('root')
+    document.getElementById("root")
 );

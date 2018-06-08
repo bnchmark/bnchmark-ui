@@ -1,6 +1,4 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import compose from 'recompose/compose';
 import PropTypes from "prop-types";
 
 
@@ -127,22 +125,4 @@ LoginPage.propTypes = {
     classes: PropTypes.object.isRequired
 };
 
-
-const mapStateToProps = (state, ownProps) => ({});
-
-const mapDispatchToProps = dispatch => ({});
-//
-// const Login = compose(
-//     withStyles(loginPageStyle),
-//     connect(mapStateToProps, mapDispatchToProps)
-// )(LoginPage);
-
-// export default withRouter(loginPageStyle)(Login);
-
-// export default withRouter(connect(mapStateToProps, mapDispatchToProps)(LoginPage));
-// export default withStyles(loginPageStyle)(LoginPage);
-
-export default compose(
-    withStyles(loginPageStyle),
-    connect(mapStateToProps, mapDispatchToProps)
-)(LoginPage);
+export default withStyles(loginPageStyle)(LoginPage);

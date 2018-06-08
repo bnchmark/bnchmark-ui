@@ -35,8 +35,7 @@ class WizardView extends React.Component {
                     <Wizard
                         validate
                         finishButtonClick={this.submitForm}
-                        steps={[
-                            {stepName: "About", stepComponent: About, stepId: "about"}
+                        steps={[{stepName: "About", stepComponent: About, stepId: "about"}
                             // {stepName: "Company", stepComponent: Company, stepId: "company"}
                             // {stepName: "Address", stepComponent: Step3, stepId: "address"}
                         ]}

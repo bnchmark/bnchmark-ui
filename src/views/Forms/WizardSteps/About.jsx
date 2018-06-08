@@ -147,7 +147,9 @@ class About extends React.Component {
     }
 
     render() {
-        const {classes} = this.props;
+        const {classes, auth} = this.props;
+
+        console.log(auth);
 
         return (
             <GridContainer justify="center">
