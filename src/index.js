@@ -1,11 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Router, Route, Switch, Redirect } from "react-router-dom";
+import {Router, Route, Switch, Redirect} from "react-router-dom";
 import Auth from "auth/Auth";
 import indexRoutes from "routes/index.jsx";
 import "assets/scss/material-dashboard-pro-react.css?v=1.1.0";
 
 import history from 'history.js';
+
 const auth = new Auth();
 
 const handleAuthentication = ({location}) => {
