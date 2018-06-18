@@ -37,7 +37,7 @@ const switchRoutes = (
     </Switch>
 );
 
-var ps;
+let ps;
 
 class Dashboard extends React.Component {
     state = {
@@ -80,9 +80,6 @@ class Dashboard extends React.Component {
 
     render() {
         const {classes, auth, ...rest} = this.props;
-
-        console.log(auth)
-
         const mainPanel =
             classes.mainPanel +
             " " +
@@ -94,6 +91,7 @@ class Dashboard extends React.Component {
         return (
             <div className={classes.wrapper}>
                 <Sidebar
+                    auth={auth}
                     routes={dashboardRoutes}
                     logoText={"Bnchmark"}
                     logo={logo}

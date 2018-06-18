@@ -5,7 +5,7 @@ import Dashboard from "layouts/Dashboard.jsx";
 import Callback from "components/Callback/Callback"
 
 const indexRoutes = [
-    {path: "/pages", name: "Pages", component: Pages},
+    {path: "/pages", name: "Pages", component: Pages, private: true},
     {path: "/dashboard", name: "Home", component: Dashboard, private: true},
     {path: "/callback", name: "Callback", component: Callback},
     {path: "/login", name: "Login", component: Login},

@@ -22,8 +22,6 @@ import VectorMap from "views/Maps/VectorMap.jsx";
 import Charts from "views/Charts/Charts.jsx";
 import Calendar from "views/Calendar/Calendar.jsx";
 import Widgets from "views/Widgets/Widgets.jsx";
-// import RTLSupport from "views/Pages/RTLSupport.jsx";
-
 import pagesRoutes from "./pages.jsx";
 // material-ui-icons
 import DashboardIcon from "material-ui-icons/Dashboard";
@@ -41,11 +39,17 @@ import WidgetsIcon from "material-ui-icons/Widgets";
 import Timeline from "material-ui-icons/Timeline";
 import DateRange from "material-ui-icons/DateRange";
 
-var pages = [
+const pages = [
     {
         path: "/timeline-page",
         name: "Timeline Page",
         mini: "TP",
+        component: TimelinePage
+    },
+    {
+        path: "/onboard-page",
+        name: "OnBoard Page",
+        mini: "BP",
         component: TimelinePage
     },
     {
@@ -54,15 +58,9 @@ var pages = [
         mini: "UP",
         component: UserProfile
     }
-    // {
-    //   path: "/rtl/rtl-support-page",
-    //   name: "RTL Support",
-    //   mini: "RS",
-    //   component: RTLSupport
-    // }
 ].concat(pagesRoutes);
 
-var dashRoutes = [
+const dashRoutes = [
     {
         path: "/dashboard",
         name: "Dashboard",
