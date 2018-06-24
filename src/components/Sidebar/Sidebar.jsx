@@ -107,7 +107,7 @@ class Sidebar extends React.Component {
             image,
             logoText,
             routes,
-            bgColor,
+            bgColor
         } = this.props;
 
         const {userInfo} = this.state;
@@ -350,7 +350,7 @@ class Sidebar extends React.Component {
             " " +
             cx({
                 [classes.logoNormalSidebarMini]:
-                this.props.miniActive && this.state.miniActiveg
+                this.props.miniActive && this.state.miniActive
             });
 
         const logoMini = classes.logoMini;
