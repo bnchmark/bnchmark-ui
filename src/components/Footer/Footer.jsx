@@ -35,21 +35,21 @@ function Footer({ ...props }) {
                 {rtlActive ? "الصفحة الرئيسية" : "Home"}
               </a>
             </ListItem>
-            <ListItem className={classes.inlineBlock}>
-              <a href="#company" className={block}>
-                {rtlActive ? "شركة" : "Company"}
-              </a>
-            </ListItem>
-            <ListItem className={classes.inlineBlock}>
-              <a href="#portfolio" className={block}>
-                {rtlActive ? "بعدسة" : "Portfolio"}
-              </a>
-            </ListItem>
-            <ListItem className={classes.inlineBlock}>
-              <a href="#blog" className={block}>
-                {rtlActive ? "مدونة" : "Blog"}
-              </a>
-            </ListItem>
+            {/*<ListItem className={classes.inlineBlock}>*/}
+              {/*<a href="#company" className={block}>*/}
+                {/*{rtlActive ? "شركة" : "Company"}*/}
+              {/*</a>*/}
+            {/*</ListItem>*/}
+            {/*<ListItem className={classes.inlineBlock}>*/}
+              {/*<a href="#portfolio" className={block}>*/}
+                {/*{rtlActive ? "بعدسة" : "Portfolio"}*/}
+              {/*</a>*/}
+            {/*</ListItem>*/}
+            {/*<ListItem className={classes.inlineBlock}>*/}
+              {/*<a href="#blog" className={block}>*/}
+                {/*{rtlActive ? "مدونة" : "Blog"}*/}
+              {/*</a>*/}
+            {/*</ListItem>*/}
           </List>
         </div>
         <p className={classes.right}>

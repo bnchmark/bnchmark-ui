@@ -6,6 +6,7 @@ import indexRoutes from "routes/index.jsx";
 import "assets/scss/material-dashboard-pro-react.css?v=1.1.0";
 
 import history from 'history.js';
+
 const auth = new Auth();
 
 const handleAuthentication = ({location}) => {
@@ -26,9 +27,9 @@ ReactDOM.render(
                     }} key={key}/>;
                 }
 
-                // if (!prop.private) {
-                //     return <Route path={prop.path} component={prop.component} auth={auth} key={key}/>;
-                // }
+                if (!prop.private) {
+                    return <Route path={prop.path} component={prop.component} key={key}/>;
+                }
 
                 return <Route path={prop.path} auth={auth} render={(props) => {
                     props.auth = auth;

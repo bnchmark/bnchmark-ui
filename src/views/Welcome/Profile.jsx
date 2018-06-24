@@ -5,14 +5,14 @@ import Wizard from "components/Wizard/Wizard.jsx";
 import GridContainer from "components/Grid/GridContainer.jsx";
 import ItemGrid from "components/Grid/ItemGrid.jsx";
 import AuthService from "auth/Auth"
-import About from "./WizardSteps/About";
-import Company from "./WizardSteps/Company.jsx";
+import About from "./ProfileSteps/About";
+import Company from "./ProfileSteps/Company.jsx";
 // import Step3 from "./WizardSteps/Step3.jsx";
 
 
 const auth = new AuthService();
 
-class WizardView extends React.Component {
+class WelcomeProfileView extends React.Component {
     submitForm(data) {
 
         // var url = 'http://localhost:3000/api/data'
@@ -46,4 +46,4 @@ class WizardView extends React.Component {
     }
 }
 
-export default WizardView;
+export default WelcomeProfileView;

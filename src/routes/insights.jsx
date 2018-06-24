@@ -1,5 +1,4 @@
 import Dashboard from "views/Dashboard/Dashboard.jsx";
-import Insights from "views/Insights/Insights.jsx";
 import TimelinePage from "views/Pages/Timeline.jsx";
 import UserProfile from "views/Pages/UserProfile.jsx";
 
@@ -42,15 +41,9 @@ import DateRange from "material-ui-icons/DateRange";
 
 const pages = [
     {
-        path: "/timeline-page",
+        path: "/aa",
         name: "Timeline Page",
         mini: "TP",
-        component: TimelinePage
-    },
-    {
-        path: "/onboard-page",
-        name: "OnBoard Page",
-        mini: "BP",
         component: TimelinePage
     },
     {
@@ -61,7 +54,7 @@ const pages = [
     }
 ].concat(pagesRoutes);
 
-const dashRoutes = [
+const insightsRoutes = [
     {
         path: "/dashboard",
         name: "Dashboard",
@@ -72,7 +65,7 @@ const dashRoutes = [
         path: "/insights",
         name: "Insights",
         icon: InsightIcon,
-        component: Insights
+        component: Dashboard
     },
     {
         path: "/community",
@@ -231,6 +224,6 @@ const dashRoutes = [
     { path: "/widgets", name: "Widgets", icon: WidgetsIcon, component: Widgets },
     { path: "/charts", name: "Charts", icon: Timeline, component: Charts },
     { path: "/calendar", name: "Calendar", icon: DateRange, component: Calendar },
-    {redirect: true, path: "/", pathTo: "/dashboard", name: "Dashboard"}
+    {redirect: true, path: "/", pathTo: "/insights", name: "Insights"}
 ];
-export default dashRoutes;
+export default insightsRoutes;
