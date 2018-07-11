@@ -65,24 +65,28 @@ const dashRoutes = [
     {
         path: "/dashboard",
         name: "Dashboard",
+        visible: true,
         icon: DashboardIcon,
         component: Dashboard
     },
     {
         path: "/insights",
         name: "Insights",
+        visible: true,
         icon: InsightIcon,
         component: Insights
     },
     {
         path: "/community",
         name: "Community",
+        visible: true,
         icon: CommunityIcon,
         component: Dashboard
     },
     {
         path: "/development",
         name: "Development",
+        visible: true,
         icon: DevelopmentIcon,
         component: Dashboard
     },
