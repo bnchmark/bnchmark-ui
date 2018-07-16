@@ -1,5 +1,8 @@
 import Dashboard from "views/Dashboard/Dashboard.jsx";
+
 import Insights from "views/Insights/Insights.jsx";
+import Accounting from "views/Insights/Accounting.jsx";
+
 import TimelinePage from "views/Pages/Timeline.jsx";
 import UserProfile from "views/Pages/UserProfile.jsx";
 
@@ -74,7 +77,22 @@ const dashRoutes = [
         name: "Insights",
         visible: true,
         icon: InsightIcon,
-        component: Insights
+        collapse: true,
+        component: Insights,
+        views: [
+            {
+                path: "/insights/overview",
+                name: "Overview",
+                mini: "O",
+                component: Insights
+            },
+            {
+                path: "/insights/accounting",
+                name: "Accounting",
+                mini: "A",
+                component: Accounting
+            }
+        ]
     },
     {
         path: "/community",
@@ -93,148 +111,149 @@ const dashRoutes = [
     {
         path: "/events",
         name: "Events",
+        visible: true,
         icon: EventsIcon,
         component: Dashboard
     },
     {
-      collapse: true,
-      path: "-page",
-      name: "Pages",
-      state: "openPages",
-      icon: Image,
-      views: pages
+        collapse: true,
+        path: "-page",
+        name: "Pages",
+        state: "openPages",
+        icon: Image,
+        views: pages
     },
     {
-      collapse: true,
-      path: "/components",
-      name: "Components",
-      state: "openComponents",
-      icon: Apps,
-      views: [
-        {
-          path: "/components/buttons",
-          name: "Buttons",
-          mini: "B",
-          component: Buttons
-        },
-        {
-          path: "/components/grid-system",
-          name: "Grid System",
-          mini: "GS",
-          component: GridSystem
-        },
-        {
-          path: "/components/panels",
-          name: "Panels",
-          mini: "P",
-          component: Panels
-        },
-        {
-          path: "/components/sweet-alert",
-          name: "Sweet Alert",
-          mini: "SA",
-          component: SweetAlert
-        },
-        {
-          path: "/components/notifications",
-          name: "Notifications",
-          mini: "N",
-          component: Notifications
-        },
-        { path: "/components/icons", name: "Icons", mini: "I", component: Icons },
-        {
-          path: "/components/typography",
-          name: "Typography",
-          mini: "T",
-          component: Typography
-        }
-      ]
+        collapse: true,
+        path: "/components",
+        name: "Components",
+        state: "openComponents",
+        icon: Apps,
+        views: [
+            {
+                path: "/components/buttons",
+                name: "Buttons",
+                mini: "B",
+                component: Buttons
+            },
+            {
+                path: "/components/grid-system",
+                name: "Grid System",
+                mini: "GS",
+                component: GridSystem
+            },
+            {
+                path: "/components/panels",
+                name: "Panels",
+                mini: "P",
+                component: Panels
+            },
+            {
+                path: "/components/sweet-alert",
+                name: "Sweet Alert",
+                mini: "SA",
+                component: SweetAlert
+            },
+            {
+                path: "/components/notifications",
+                name: "Notifications",
+                mini: "N",
+                component: Notifications
+            },
+            {path: "/components/icons", name: "Icons", mini: "I", component: Icons},
+            {
+                path: "/components/typography",
+                name: "Typography",
+                mini: "T",
+                component: Typography
+            }
+        ]
     },
     {
-      collapse: true,
-      path: "/forms",
-      name: "Forms",
-      state: "openForms",
-      icon: ContentPaste,
-      views: [
-        {
-          path: "/forms/regular-forms",
-          name: "Regular Forms",
-          mini: "RF",
-          component: RegularForms
-        },
-        {
-          path: "/forms/extended-forms",
-          name: "Extended Forms",
-          mini: "EF",
-          component: ExtendedForms
-        },
-        {
-          path: "/forms/validation-forms",
-          name: "Validation Forms",
-          mini: "VF",
-          component: ValidationForms
-        },
-        { path: "/forms/wizard", name: "Wizard", mini: "W", component: Wizard }
-      ]
+        collapse: true,
+        path: "/forms",
+        name: "Forms",
+        state: "openForms",
+        icon: ContentPaste,
+        views: [
+            {
+                path: "/forms/regular-forms",
+                name: "Regular Forms",
+                mini: "RF",
+                component: RegularForms
+            },
+            {
+                path: "/forms/extended-forms",
+                name: "Extended Forms",
+                mini: "EF",
+                component: ExtendedForms
+            },
+            {
+                path: "/forms/validation-forms",
+                name: "Validation Forms",
+                mini: "VF",
+                component: ValidationForms
+            },
+            {path: "/forms/wizard", name: "Wizard", mini: "W", component: Wizard}
+        ]
     },
     {
-      collapse: true,
-      path: "/tables",
-      name: "Tables",
-      state: "openTables",
-      icon: GridOn,
-      views: [
-        {
-          path: "/tables/regular-tables",
-          name: "Regular Tables",
-          mini: "RT",
-          component: RegularTables
-        },
-        {
-          path: "/tables/extended-tables",
-          name: "Extended Tables",
-          mini: "ET",
-          component: ExtendedTables
-        },
-        {
-          path: "/tables/react-tables",
-          name: "React Tables",
-          mini: "RT",
-          component: ReactTables
-        }
-      ]
+        collapse: true,
+        path: "/tables",
+        name: "Tables",
+        state: "openTables",
+        icon: GridOn,
+        views: [
+            {
+                path: "/tables/regular-tables",
+                name: "Regular Tables",
+                mini: "RT",
+                component: RegularTables
+            },
+            {
+                path: "/tables/extended-tables",
+                name: "Extended Tables",
+                mini: "ET",
+                component: ExtendedTables
+            },
+            {
+                path: "/tables/react-tables",
+                name: "React Tables",
+                mini: "RT",
+                component: ReactTables
+            }
+        ]
     },
     {
-      collapse: true,
-      path: "/maps",
-      name: "Maps",
-      state: "openMaps",
-      icon: Place,
-      views: [
-        {
-          path: "/maps/google-maps",
-          name: "Google Maps",
-          mini: "GM",
-          component: GoogleMaps
-        },
-        {
-          path: "/maps/full-screen-maps",
-          name: "Full Screen Map",
-          mini: "FSM",
-          component: FullScreenMap
-        },
-        {
-          path: "/maps/vector-maps",
-          name: "Vector Map",
-          mini: "VM",
-          component: VectorMap
-        }
-      ]
+        collapse: true,
+        path: "/maps",
+        name: "Maps",
+        state: "openMaps",
+        icon: Place,
+        views: [
+            {
+                path: "/maps/google-maps",
+                name: "Google Maps",
+                mini: "GM",
+                component: GoogleMaps
+            },
+            {
+                path: "/maps/full-screen-maps",
+                name: "Full Screen Map",
+                mini: "FSM",
+                component: FullScreenMap
+            },
+            {
+                path: "/maps/vector-maps",
+                name: "Vector Map",
+                mini: "VM",
+                component: VectorMap
+            }
+        ]
     },
-    { path: "/widgets", name: "Widgets", icon: WidgetsIcon, component: Widgets },
-    { path: "/charts", name: "Charts", icon: Timeline, component: Charts },
-    { path: "/calendar", name: "Calendar", icon: DateRange, component: Calendar },
+    {path: "/widgets", name: "Widgets", icon: WidgetsIcon, component: Widgets},
+    {path: "/charts", name: "Charts", icon: Timeline, component: Charts},
+    {path: "/calendar", name: "Calendar", icon: DateRange, component: Calendar},
     {redirect: true, path: "/", pathTo: "/dashboard", name: "Dashboard"}
 ];
 export default dashRoutes;
